@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Infusions Estate</title>
+  <meta name="description" content="Browse apartments, villas and townhouses across Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah — new launches, ongoing and completed.">
+  <meta name="theme-color" content="#f7f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Infusions Estate">
+  <meta property="og:title" content="Projects — Infusions Estate">
+  <meta property="og:description" content="Browse apartments, villas and townhouses across Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah — new launches, ongoing and completed.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <script>try { var t = localStorage.getItem("ie-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="projects">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="header" id="header"></header>
+
+  <main id="main">
+
+    <section class="phead" data-leaf>
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span></nav>
+        <h1 class="title title--lg reveal"><b>Our</b> <em>projects</em></h1>
+        <p class="lead reveal">Every community we are building or have completed across the UAE. Search by community, home type, bedrooms and budget.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <form class="page-search" id="pageSearch" action="projects.html" aria-label="Filter projects"></form>
+        <div class="toolbar toolbar--slim" id="results">
+          <div class="toolbar__row"><span class="toolbar__label">Stage</span><div class="chips" id="fStatus"></div></div>
+          <div class="toolbar__right">
+            <label class="sr-only" for="fSearch">Search projects</label>
+            <input class="input search" id="fSearch" type="search" placeholder="Search name or area">
+            <label class="sr-only" for="fSort">Sort</label>
+            <select class="select" id="fSort">
+              <option value="featured">Featured first</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+        <p class="count" id="count" aria-live="polite"></p>
+        <div class="projects projects--3" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

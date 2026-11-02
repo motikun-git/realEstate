@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Infusions Estate</title>
+  <meta name="description" content="Book a site visit, ask about a project, join our broker programme or apply for a role.">
+  <meta name="theme-color" content="#f7f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Infusions Estate">
+  <meta property="og:title" content="Contact Us — Infusions Estate">
+  <meta property="og:description" content="Book a site visit, ask about a project, join our broker programme or apply for a role.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <script>try { var t = localStorage.getItem("ie-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="header" id="header"></header>
+
+  <main id="main">
+
+    <section class="phead" data-leaf>
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact Us</span></nav>
+        <h1 class="title title--lg reveal"><b>Get in</b> <em>touch</em></h1>
+        <p class="lead reveal">Book a visit, ask about a project or partner with us. An advisor will reply within one working day.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container split">
+        <div class="reveal-left">
+          <p class="eyebrow">Our office</p>
+          <h2 class="title title--sm"><b>Talk to</b> <em>an advisor</em></h2>
+          <ul class="info" id="contactInfo"></ul>
+          <div class="socials" id="contactSocials"></div>
+        </div>
+        <form class="form reveal-right" id="contactForm" novalidate>
+          <div class="form__tabs" id="cType" role="radiogroup" aria-label="I am contacting you as"></div>
+          <div class="form__grid">
+            <label>Full name<input name="name" required autocomplete="name"></label>
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+            <label id="cExtraWrap"><span id="cExtraLabel">Interested in</span><select name="extra" id="cExtra"></select></label>
+            <label class="form__full">Message<textarea name="message" rows="4"></textarea></label>
+            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          </div>
+          <button class="pill pill--solid pill--lg" type="submit">Send message</button>
+          <p class="form__note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <div class="map reveal-zoom" id="contactMap" style="aspect-ratio:2.4"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="title title--sm"><b>Questions buyers</b> <em>often ask</em></h2>
+        </div>
+        <div class="faq reveal">
+          <details open><summary>How accurate is the price explorer?</summary><p>It uses an estimated price per square foot for each area and project stage, plus the emirate's registration fee. It is a guide for budgeting — your advisor confirms the exact price of a specific unit before reservation.</p></details>
+          <details><summary>What is the difference between New Launch, Ongoing and Completed?</summary><p>New Launch projects are off-plan and usually the lowest price per sq ft. Ongoing projects are under construction. Completed projects are ready to move into and usually cost the most per sq ft.</p></details>
+          <details><summary>Can I book a video walkthrough from abroad?</summary><p>Yes. Choose "Buyer", mention the project and your time zone in the message, and we will schedule a live video tour.</p></details>
+          <details><summary>Are there fees on top of the property price?</summary><p>Each emirate charges a registration or transfer fee, shown in the estimator. Service charges and mortgage costs depend on the project and lender.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

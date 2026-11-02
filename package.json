@@ -1,10 +1,11 @@
 {
   "name": "infusions-estate",
-  "version": "1.0.0",
-  "description": "Infusions Estate — UAE real estate front-end with per-sq-ft price explorer",
+  "version": "2.0.0",
+  "description": "Infusions Estate — UAE real estate website with project showcase and per-sq-ft price explorer",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "sitemap": "node tools/make-sitemap.js"
   },
   "engines": {
     "node": ">=18"

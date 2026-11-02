@@ -9,7 +9,14 @@
 
    fee    = government registration / transfer fee for that emirate (%).
 
-   water: true  -> project artwork shows the sea (waterfront areas)
+   water: true    -> project artwork shows the sea (waterfront areas)
+   featured: true -> project appears in the home page showcase + slider
+
+   Optional per project:
+     image: "images/x.jpg"          real exterior photo (replaces the drawing)
+     interiorImage: "images/y.jpg"  real interior photo
+     details: { plot, height, units, parking, sizeText, unitTypes, intro }
+       -> real "At A Glance" facts (otherwise demo values are generated)
 
    IMPORTANT: All prices are rough ESTIMATES for the demo website, based on
    general market levels. Check current figures before going live.
@@ -47,7 +54,7 @@ window.MARKET_DATA = {
           blurb: "The city's centrepiece of towers, boulevards and fountains.",
           rates: { new: 3100, ongoing: 3250, completed: 3450 },
           projects: [
-            { name: "Boulevard Crest", type: "Sky Apartments", status: "ongoing", handover: "Q1 2028" },
+            { name: "Boulevard Crest", featured: true, type: "Sky Apartments", status: "ongoing", handover: "Q1 2028" },
             { name: "Opera Heights", type: "Penthouses", status: "completed", handover: "Ready" }
           ]
         },
@@ -56,7 +63,7 @@ window.MARKET_DATA = {
           blurb: "Iconic island living with private beaches.",
           rates: { new: 4600, ongoing: 4850, completed: 5200 },
           projects: [
-            { name: "Frond Villas", type: "Villas", status: "completed", handover: "Ready" },
+            { name: "Frond Villas", featured: true, type: "Villas", status: "completed", handover: "Ready" },
             { name: "Crescent Residences", type: "Apartments", status: "new", handover: "Q4 2029" }
           ]
         },
@@ -82,7 +89,7 @@ window.MARKET_DATA = {
           blurb: "Green, golf-side community for families.",
           rates: { new: 2150, ongoing: 2300, completed: 2550 },
           projects: [
-            { name: "Parkside Villas", type: "Villas", status: "new", handover: "Q2 2029" },
+            { name: "Parkside Villas", featured: true, type: "Villas", status: "new", handover: "Q2 2029" },
             { name: "Fairway Residences", type: "Townhouses", status: "ongoing", handover: "Q3 2027" }
           ]
         },
@@ -91,7 +98,7 @@ window.MARKET_DATA = {
           blurb: "New waterfront district beside the wildlife sanctuary.",
           rates: { new: 2300, ongoing: 2400, completed: 2550 },
           projects: [
-            { name: "Creekside Towers", type: "Apartments", status: "ongoing", handover: "Q4 2027" },
+            { name: "Creekside Towers", featured: true, type: "Apartments", status: "ongoing", handover: "Q4 2027" },
             { name: "Lagoon Terraces", type: "Apartments", status: "new", handover: "Q1 2030" }
           ]
         },
@@ -127,7 +134,7 @@ window.MARKET_DATA = {
           blurb: "Beaches, museums and low-density villas.",
           rates: { new: 2300, ongoing: 2450, completed: 2600 },
           projects: [
-            { name: "Saadiyat Shores", type: "Villas", status: "new", handover: "Q1 2030" },
+            { name: "Saadiyat Shores", featured: true, type: "Villas", status: "new", handover: "Q1 2030" },
             { name: "Gallery Residences", type: "Apartments", status: "completed", handover: "Ready" }
           ]
         },
@@ -207,7 +214,7 @@ window.MARKET_DATA = {
           blurb: "Resort island with fast-growing demand.",
           rates: { new: 2000, ongoing: 2100, completed: 2200 },
           projects: [
-            { name: "Coral Bay Residences", type: "Apartments", status: "new", handover: "Q4 2028" },
+            { name: "Coral Bay Residences", featured: true, type: "Apartments", status: "new", handover: "Q4 2028" },
             { name: "Marjan Beach Villas", type: "Villas", status: "ongoing", handover: "Q2 2028" }
           ]
         },

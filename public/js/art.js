@@ -367,5 +367,67 @@
     return toCss(svg);
   }
 
-  window.Art = { project, skyline, interior, brush };
+
+  /* ---------- public: amenity scene (pool deck) ---------- */
+  function pool(seed = "pool") {
+    const r = rng(hash(seed + "-pool"));
+    const W = 600, H = 420;
+    const pal = PALETTES[pick(r, ["day", "dawn", "dusk"])];
+    let defs = gradient("psky", pal.sky) + gradient("pwater", ["#8fd0de", "#3f93ab"]);
+    let o = `<rect width="${W}" height="${H}" fill="url(#psky)"/>`;
+    // building behind
+    const bx = range(r, 40, 160), bw = range(r, 220, 320);
+    o += `<rect x="${f(bx)}" y="60" width="${f(bw)}" height="${H * 0.55 - 60}" fill="${pal.wall}"/>`;
+    for (let y = 80; y < H * 0.55 - 20; y += 34) {
+      for (let x = bx + 16; x < bx + bw - 30; x += 46) {
+        o += `<rect x="${f(x)}" y="${f(y)}" width="30" height="20" fill="${pal.glassA}" opacity="0.85"/>`;
+      }
+      o += `<rect x="${f(bx - 6)}" y="${f(y + 22)}" width="${f(bw + 12)}" height="4" fill="${pal.wallShade}"/>`;
+    }
+    // deck + pool
+    const deckY = H * 0.55;
+    o += `<rect y="${f(deckY)}" width="${W}" height="${f(H - deckY)}" fill="#e7dccb"/>`;
+    o += `<polygon points="60,${f(deckY + 30)} ${W - 40},${f(deckY + 30)} ${W + 40},${H} -20,${H}" fill="url(#pwater)"/>`;
+    for (let i = 0; i < 10; i++) {
+      const y = range(r, deckY + 40, H - 10), x = range(r, 40, W - 140);
+      o += `<path d="M${f(x)} ${f(y)} q15 -5 30 0 t30 0" stroke="#fff" stroke-opacity="0.35" fill="none"/>`;
+    }
+    // loungers + umbrella
+    for (let i = 0; i < 3; i++) {
+      o += `<rect x="${f(40 + i * 70)}" y="${f(deckY + 6)}" width="54" height="10" rx="3" fill="#fbf8f2" stroke="#00000018"/>`;
+    }
+    o += `<line x1="${W - 110}" y1="${f(deckY + 20)}" x2="${W - 110}" y2="${f(deckY - 60)}" stroke="#6b5b4d" stroke-width="3"/>`;
+    o += `<path d="M${W - 170} ${f(deckY - 58)} Q${W - 110} ${f(deckY - 100)} ${W - 50} ${f(deckY - 58)} Z" fill="#f4efe6" stroke="#00000014"/>`;
+    o += palm(W - 30, deckY + 4, 150, pal.palm) + palm(20, deckY + 4, 120, pal.palm);
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"><defs>${defs}</defs>${o}</svg>`;
+    return toCss(svg);
+  }
+
+  /* ---------- public: decorative palm leaf (for backgrounds) ---------- */
+  function leaf(color = "#000") {
+    let o = `<path d="M40 560 C180 420 300 260 420 40" stroke="${color}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+    for (let i = 0; i < 22; i++) {
+      const t = i / 22;
+      const x = 40 + (420 - 40) * t + Math.sin(t * 3) * 20, y = 560 - 520 * t;
+      const len = 210 * Math.sin(Math.PI * (0.15 + t * 0.8));
+      o += `<path d="M${f(x)} ${f(y)} q${f(-len * 0.35)} ${f(len * 0.05)} ${f(-len * 0.9)} ${f(len * 0.55)}" stroke="${color}" stroke-width="${f(12 - t * 7)}" fill="none" stroke-linecap="round"/>`;
+      o += `<path d="M${f(x)} ${f(y)} q${f(len * 0.5)} ${f(-len * 0.05)} ${f(len * 0.95)} ${f(len * 0.4)}" stroke="${color}" stroke-width="${f(12 - t * 7)}" fill="none" stroke-linecap="round"/>`;
+    }
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">${o}</svg>`;
+    return toCss(svg);
+  }
+
+  /* ---------- public: gold dust specks ---------- */
+  function dust(color = "#c9a86a") {
+    const r = rng(hash("dust"));
+    let o = "";
+    for (let i = 0; i < 46; i++) {
+      const x = range(r, 0, 200) + range(r, 0, 60) * (i / 46), y = range(r, 0, 220);
+      o += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(range(r, 0.8, 5) * (r() < 0.15 ? 1.8 : 1))}" fill="${color}" opacity="${f(range(r, 0.4, 0.95))}"/>`;
+    }
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220">${o}</svg>`;
+    return toCss(svg);
+  }
+
+  window.Art = { project, skyline, interior, brush, pool, leaf, dust };
 })();

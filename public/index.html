@@ -1,174 +1,237 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infusions Estate — Homes across the UAE</title>
-  <meta name="description" content="Explore communities across the UAE and estimate your home's price per square foot.">
-  <script>try { if (localStorage.getItem("ie-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+  <meta name="description" content="Apartments, villas and townhouses in Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah. Compare prices per square foot and estimate the cost of your home.">
+  <meta name="theme-color" content="#f7f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Infusions Estate">
+  <meta property="og:title" content="Infusions Estate — Homes across the UAE">
+  <meta property="og:description" content="Compare prices per square foot across UAE communities and estimate the cost of your home.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <script>try { var t = localStorage.getItem("ie-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page-home">
-
+<body data-page="home">
+  <a class="sr-only" href="#main">Skip to content</a>
   <header class="header" id="header"></header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="home">
-    <div class="hero__media">
-      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata"></video>
-      <div class="hero__shade"></div>
-    </div>
-
-    <div class="hero__content container">
-      <p class="eyebrow reveal" id="heroEyebrow"></p>
-      <h1 class="hero__title reveal" id="heroTitle"></h1>
-      <p class="hero__sub reveal" id="heroSub"></p>
-      <div class="hero__btns reveal">
-        <a href="#work" class="btn btn--gold">Explore Prices</a>
-        <a href="#join" class="btn btn--ghost">Register Interest</a>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="container">
+        <h1 class="hero__words" id="heroWords"></h1>
       </div>
-    </div>
-
-    <button class="hero__sound" id="heroSound" aria-label="Unmute video" title="Sound">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sound-off" d="M17 9l4 6M21 9l-4 6"/><path class="sound-on" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>
-    </button>
-
-    <a href="#journey" class="hero__scroll" aria-label="Scroll down"><span>Scroll</span><i></i></a>
-  </section>
-
-  <!-- ================= JOURNEY ================= -->
-  <section class="section journey" id="journey">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Discover us</p>
-        <h2 class="section__title">From first look to keys in hand</h2>
-        <p class="section__lead">A simple, transparent path to owning a home in the UAE — with the numbers in front of you from day one.</p>
+      <div class="hero__stage">
+      <div class="hero__band" id="heroBand">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <button class="hero__sound" id="heroSound" type="button" aria-label="Unmute video">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sound-off" d="M17 9l4 6M21 9l-4 6"/><path class="sound-on" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>
+        </button>
       </div>
-
-      <ol class="journey__steps">
-        <li class="step reveal"><span class="step__num">01</span><h3>Discover</h3><p>Browse communities across Dubai, Abu Dhabi, Sharjah and Ras Al Khaimah.</p></li>
-        <li class="step reveal"><span class="step__num">02</span><h3>Estimate</h3><p>Pick an area and project stage to see the price per square foot and your estimated total.</p></li>
-        <li class="step reveal"><span class="step__num">03</span><h3>Visit</h3><p>Book a site visit or a video walkthrough with our advisors.</p></li>
-        <li class="step reveal"><span class="step__num">04</span><h3>Own</h3><p>We guide you through reservation, paperwork and handover.</p></li>
-      </ol>
-
-      <div class="stats reveal" id="stats"></div>
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS + PRICE EXPLORER ================= -->
-  <section class="section work" id="work">
-    <div class="container">
-      <div class="section__head section__head--row reveal">
-        <div>
-          <p class="eyebrow">Our projects</p>
-          <h2 class="section__title">Projects &amp; Price Explorer</h2>
-          <p class="section__lead">Choose an emirate, open an area and compare prices for new, ongoing and completed projects.</p>
-        </div>
-        <div class="filters" id="statusFilters" role="tablist" aria-label="Project status"></div>
+      <form class="hero__search" id="heroSearch" action="projects.html" aria-label="Find a property"></form>
       </div>
+    </section>
 
-      <div class="work__layout">
-        <div class="work__projects">
-          <div class="work__crumbs" id="crumbs"></div>
-          <div class="projects" id="projects"></div>
-        </div>
-
-        <aside class="panel" id="panel" aria-label="Price explorer">
-          <div class="panel__block">
-            <p class="panel__label">Emirate</p>
-            <div class="chips" id="cities"></div>
+    <!-- ============ OUR WORK: projects slide in from left / right ============ -->
+    <section class="section showcase" id="work">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div class="reveal">
+            <p class="eyebrow">Our work</p>
+            <h2 class="title"><b>Homes we are</b> <em>building</em></h2>
+            <p class="lead">A closer look at our signature communities — from sky apartments in Downtown Dubai to beachfront villas on Al Marjan Island.</p>
           </div>
+          <a class="pill pill--line reveal" href="projects.html">All projects</a>
+        </div>
+        <div class="showcase__list" id="showcase"></div>
+      </div>
+    </section>
 
-          <div class="panel__block">
-            <p class="panel__label">Areas · price per sq ft</p>
-            <div class="areas" id="areas"></div>
+    <!-- ============ INTRO ============ -->
+    <section class="section section--tint intro" id="about" data-dust>
+      <div class="container">
+        <h2 class="title intro__title reveal" id="introTitle"></h2>
+        <div class="intro__grid">
+          <div>
+            <div class="intro__small reveal-left" id="introSmall" role="img" aria-label="Pool deck illustration"></div>
+            <div class="intro__shape reveal d2" aria-hidden="true"></div>
           </div>
-
-          <div class="panel__block calc" id="calc">
-            <p class="panel__label">Cost estimator</p>
-            <div class="calc__row">
-              <label>Project stage</label>
-              <div class="seg" id="calcStatus"></div>
+          <div>
+            <div class="intro__big reveal-right" id="introBig" role="img" aria-label="City skyline illustration"></div>
+            <div class="intro__cols" style="margin-top:34px">
+              <p class="reveal" id="introLeft"></p>
+              <p class="reveal d1" id="introRight"></p>
             </div>
-            <div class="calc__row">
-              <div class="calc__sizehead">
-                <label for="sizeInput">Home size</label>
-                <div class="unit" id="unitToggle">
-                  <button data-unit="sqft" class="is-on">sq ft</button>
-                  <button data-unit="sqm">sq m</button>
-                </div>
+            <a class="pill pill--line reveal" href="about.html" style="margin-top:30px">More about us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED SLIDER ============ -->
+    <section class="section featured" aria-label="Featured projects">
+      <div class="featured__ghost" aria-hidden="true">Featured Projects</div>
+      <div class="container featured__grid" id="featured">
+        <div class="featured__text reveal-left">
+          <div class="featured__swap">
+            <p class="eyebrow" id="featArea"></p>
+            <h2 class="featured__name" id="featName"></h2>
+            <p class="featured__blurb" id="featBlurb"></p>
+            <p class="featured__price" id="featPrice"></p>
+          </div>
+          <div class="arrows">
+            <button class="round" id="featPrev" type="button" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+            <button class="round" id="featNext" type="button" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <span class="featured__count" id="featCount"></span>
+          </div>
+        </div>
+        <a class="collage reveal-right" id="featLink" href="projects.html" data-dot>
+          <span class="collage__a" id="featA"></span>
+          <span class="collage__b" id="featB"></span>
+          <span class="collage__c" id="featC"></span>
+          <span class="view-dot" aria-hidden="true">Learn<br>More</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ PRICE EXPLORER ============ -->
+    <section class="section section--tint" id="explorer">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div class="reveal">
+            <p class="eyebrow">Price explorer</p>
+            <h2 class="title"><b>What would your home</b> <em>cost?</em></h2>
+            <p class="lead">Choose an emirate, open an area and compare the estimated price per sq ft for new, ongoing and completed projects.</p>
+          </div>
+          <div class="filters reveal" id="statusFilters" aria-label="Project stage"></div>
+        </div>
+        <div class="work__layout">
+          <div>
+            <div class="work__crumbs" id="crumbs"></div>
+            <div class="projects" id="projects"></div>
+          </div>
+          <aside class="panel" id="panel" aria-label="Price explorer">
+            <div class="panel__block">
+              <p class="panel__label">Emirate</p>
+              <div class="chips" id="cities"></div>
+            </div>
+            <div class="panel__block">
+              <p class="panel__label">Areas · price per sq ft</p>
+              <div class="areas" id="areas"></div>
+            </div>
+            <div class="panel__block" id="calc">
+              <p class="panel__label">Cost estimator</p>
+              <div class="calc__row">
+                <span class="field-label">Project stage</span>
+                <div class="seg" id="calcStatus"></div>
               </div>
-              <input type="number" id="sizeInput" min="100" max="20000" step="10" inputmode="numeric">
-              <input type="range" id="sizeRange" min="200" max="8000" step="10" aria-label="Home size slider">
-              <div class="presets" id="presets"></div>
+              <div class="calc__row">
+                <div class="calc__sizehead">
+                  <label for="sizeInput">Home size</label>
+                  <div class="unit" id="unitToggle">
+                    <button data-unit="sqft" class="is-on" type="button">sq ft</button>
+                    <button data-unit="sqm" type="button">sq m</button>
+                  </div>
+                </div>
+                <input class="num-input" type="number" id="sizeInput" min="100" max="20000" step="10" inputmode="numeric">
+                <input class="range" type="range" id="sizeRange" min="200" max="8000" step="10" aria-label="Home size slider">
+                <div class="presets" id="presets"></div>
+              </div>
+              <div class="result" id="result" aria-live="polite"></div>
             </div>
-            <div class="result" id="result" aria-live="polite"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Our commitment</p>
+          <h2 class="title"><b>Guiding principles that drive our</b> <em>commitment to excellence</em></h2>
+        </div>
+        <div class="principles" id="principleList"></div>
+        <div class="stats reveal" id="stats"></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section section--tint testi" id="reviews" data-leaf>
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="title"><b>What our clients say —</b> <em>the stories of satisfaction</em></h2>
+        </div>
+        <div class="testi__stage reveal" id="testi">
+          <div class="testi__who testi__swap">
+            <div class="testi__avatar" id="tAvatar"></div>
+            <div><p class="testi__name" id="tName"></p><p class="testi__role" id="tRole"></p></div>
           </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= REVIEWS ================= -->
-  <section class="section reviews" id="reviews">
-    <div class="container">
-      <div class="section__head section__head--row reveal">
-        <div>
-          <p class="eyebrow">Testimonials</p>
-          <h2 class="section__title">What our clients say</h2>
-        </div>
-        <div class="reviews__nav">
-          <button class="round" id="revPrev" aria-label="Previous review">&larr;</button>
-          <button class="round" id="revNext" aria-label="Next review">&rarr;</button>
+          <div>
+            <div class="testi__quote testi__swap">
+              <span class="testi__mark" aria-hidden="true">&ldquo;</span>
+              <p class="testi__text" id="tText"></p>
+              <span class="testi__sample" id="tSample" hidden>Sample review</span>
+            </div>
+            <div class="arrows">
+              <button class="round" id="tPrev" type="button" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <button class="round" id="tNext" type="button" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="reviews__track" id="reviewsTrack"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= JOIN US ================= -->
-  <section class="section join" id="join">
-    <div class="container join__grid">
-      <div class="join__intro reveal">
-        <p class="eyebrow">Join us</p>
-        <h2 class="section__title">Be part of what we build next</h2>
-        <p>Register your interest in a project, partner with us as a broker, or join our team. Leave your details and an advisor will get back to you.</p>
-        <ul class="join__list">
-          <li><span class="dot"></span><strong>Buyers</strong> — early access to new launches</li>
-          <li><span class="dot"></span><strong>Brokers</strong> — partnership and commission programme</li>
-          <li><span class="dot"></span><strong>Careers</strong> — sales, design and engineering roles</li>
-        </ul>
+    <!-- ============ CONTACT BLOCKS ============ -->
+    <section class="section" aria-label="Get in touch">
+      <div class="container duo">
+        <a class="duo__card reveal-left" id="duoBuy" href="contact.html?type=buyer">
+          <p class="eyebrow" style="color:#e6c999">Customers</p>
+          <h3>Buy a home</h3>
+          <p>Book a site visit or a video walkthrough with one of our advisors.</p>
+          <span class="pill pill--light">Book a visit</span>
+        </a>
+        <a class="duo__card reveal-right" id="duoPartner" href="contact.html?type=broker">
+          <p class="eyebrow" style="color:#e6c999">Brokers &amp; partners</p>
+          <h3>Partner with us</h3>
+          <p>Join our broker programme and get early access to every launch.</p>
+          <span class="pill pill--light">Become a partner</span>
+        </a>
       </div>
+    </section>
 
-      <form class="form reveal" id="joinForm" novalidate>
-        <div class="form__tabs" id="joinType" role="radiogroup" aria-label="I am a">
-          <button type="button" class="is-on" data-type="buyer">Buyer</button>
-          <button type="button" data-type="broker">Broker</button>
-          <button type="button" data-type="career">Career</button>
+    <!-- ============ LOCATION ============ -->
+    <section class="section section--tint" id="location">
+      <div class="container location">
+        <div class="reveal-left">
+          <p class="eyebrow">Location</p>
+          <h2 class="title title--sm"><b>Visit our</b> <em>office</em></h2>
+          <ul class="info" id="officeInfo"></ul>
+          <a class="pill pill--solid" id="officeMap" href="#" target="_blank" rel="noopener" style="margin-top:28px">Open map</a>
         </div>
-        <div class="form__grid">
-          <label>Full name<input name="name" required autocomplete="name"></label>
-          <label>Email<input name="email" type="email" required autocomplete="email"></label>
-          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
-          <label>Interested in<select name="city" id="joinCity"></select></label>
-          <label class="form__full">Message<textarea name="message" rows="3" placeholder="Tell us what you're looking for"></textarea></label>
-        </div>
-        <button class="btn btn--gold" type="submit">Submit</button>
-        <p class="form__note">This demo form does not send data anywhere yet.</p>
-      </form>
-    </div>
-  </section>
+        <div class="map reveal-right" id="homeMap"></div>
+      </div>
+    </section>
+  </main>
 
-  <footer class="footer" id="contact"></footer>
+  <footer class="footer" id="footer"></footer>
 
   <script src="js/site-config.js"></script>
   <script src="js/data.js"></script>
   <script src="js/art.js"></script>
   <script src="js/layout.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/explorer.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

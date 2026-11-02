@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project — Infusions Estate</title>
-  <script>try { if (localStorage.getItem("ie-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+  <meta name="description" content="Project details, price per square foot, sizes, amenities and location.">
+  <meta name="theme-color" content="#f7f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Infusions Estate">
+  <meta property="og:title" content="Project — Infusions Estate">
+  <meta property="og:description" content="Project details, price per square foot, sizes, amenities and location.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <script>try { var t = localStorage.getItem("ie-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page-project">
-
+<body data-page="projects" class="page-dark-top">
+  <a class="sr-only" href="#main">Skip to content</a>
   <header class="header" id="header"></header>
 
-  <main id="projectPage">
-    <!-- filled by js/project.js -->
+  <main id="main">
+
+    <div id="projectPage"></div>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery" hidden>
+      <button class="pill pill--light lightbox__close" id="lbClose" type="button">Close &times;</button>
+      <button class="round lightbox__prev" id="lbPrev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <div class="lightbox__img" id="lbImg"></div>
+      <button class="round lightbox__next" id="lbNext" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
   </main>
 
-  <footer class="footer" id="contact"></footer>
+  <footer class="footer" id="footer"></footer>
 
   <script src="js/site-config.js"></script>
   <script src="js/data.js"></script>
