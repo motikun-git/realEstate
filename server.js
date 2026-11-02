@@ -97,6 +97,17 @@ const server = http.createServer((req, res) => {
   send(res, 200, file);
 });
 
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    console.log(`\nPort ${PORT} is already in use — the site is probably already running.`);
+    console.log(`  • Just open http://localhost:${PORT} and press Ctrl + F5`);
+    console.log(`  • Or stop the other server (Ctrl + C in its window) and run this again`);
+    console.log(`  • Or use another port:  $env:PORT=3001; node server.js   (PowerShell)\n`);
+    process.exit(1);
+  }
+  throw err;
+});
+
 server.listen(PORT, () => {
   console.log(`Infusions Estate running at http://localhost:${PORT}`);
 });
